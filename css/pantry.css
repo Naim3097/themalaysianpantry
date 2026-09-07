@@ -1,8 +1,9 @@
 /* ==========================================================
    THE MALAYSIAN PANTRY — UI SYSTEM
-   Brand kept: warm paper, chilli accent, Instrument Serif /
-   Newsreader / IBM Plex Mono. Everything around it rebuilt as a
-   content platform: header with search, tiled browse, five card
+   Brand kept: warm paper, chilli accent, Instrument Serif display.
+   Body is Plus Jakarta Sans: the reference food sites all set body in
+   a sans, and it reads more easily at length than a serif does.
+   Everything around it rebuilt as a content platform: header with search, tiled browse, five card
    formats, sectioned homepage rhythm.
    ========================================================== */
 
@@ -22,7 +23,7 @@
   --accent-wash: #F4E5DC;
 
   --display: 'Instrument Serif', Georgia, serif;
-  --body:    'Newsreader', Georgia, serif;
+  --body:    'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
   --mono:    'IBM Plex Mono', ui-monospace, Menlo, monospace;
 
   --shell:   84rem;
@@ -48,7 +49,8 @@ body {
   color: var(--ink);
   font-family: var(--body);
   font-size: 1.0625rem;
-  line-height: 1.6;
+  line-height: 1.65;
+  letter-spacing: -0.003em;
   font-optical-sizing: auto;
   -webkit-font-smoothing: antialiased;
 }
@@ -84,7 +86,7 @@ button { font: inherit; color: inherit; border: 0; background: none; cursor: poi
   font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.06em;
   color: var(--muted); font-variant-numeric: tabular-nums;
 }
-.stand { font-size: clamp(1.05rem, 1.5vw, 1.3rem); line-height: 1.5; color: var(--ink-2); }
+.stand { font-size: clamp(1.05rem, 1.5vw, 1.25rem); line-height: 1.55; color: var(--ink-2); }
 
 /* ---------- 3. HEADER ---------- */
 .topbar { background: var(--ink); color: var(--paper); }
@@ -342,14 +344,16 @@ figcaption { margin-top: 0.5rem; font-family: var(--mono); font-size: 0.66rem; l
 .rail dt:first-child { margin-top: 0; }
 .rail dd { margin: 0.15rem 0 0; color: var(--ink-2); }
 
-.prose { font-size: 1.125rem; line-height: 1.65; }
-.prose > * + * { margin-top: 1.25rem; }
+/* Sans body needs a touch more size and leading than a serif to read as
+   comfortably. This matches the 18px/1.75 that the big food sites use. */
+.prose { font-size: 1.125rem; line-height: 1.75; }
+.prose > * + * { margin-top: 1.35rem; }
 .prose h2 {
   font-family: var(--display); font-size: clamp(1.55rem, 2.4vw, 2rem); line-height: 1.05;
   letter-spacing: -0.015em; margin-top: clamp(2rem, 3.5vw, 3rem); padding-top: 0.85rem;
   border-top: 1px solid var(--rule-firm);
 }
-.prose h3 { font-family: var(--body); font-weight: 600; font-size: 1.08rem; margin-top: 1.75rem; }
+.prose h3 { font-family: var(--body); font-weight: 700; font-size: 1.05rem; letter-spacing: -0.005em; margin-top: 1.9rem; }
 .prose ul, .prose ol { padding-left: 1.15rem; }
 .prose li + li { margin-top: 0.4rem; }
 .prose strong { font-weight: 600; }
