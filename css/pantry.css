@@ -149,21 +149,41 @@ h1, h2, h3, h4 {
   border-bottom: 1px solid var(--rule-strong);
 }
 
-/* ---------- LEAD ARTICLE ---------- */
-.lead-story {
-  display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: clamp(1.5rem, 4vw, 3.5rem);
-  align-items: center;
+/* ---------- LEAD ARTICLE ----------
+   The front page needs one thing with real presence. Image leads, headline
+   is set at hero scale rather than the timid mid-size it had before. */
+.lead-story { display: grid; gap: clamp(1.5rem, 3.5vw, 2.75rem); }
+.lead-story-media {
+  aspect-ratio: 21 / 9;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--paper-alt);
+}
+@supports not (aspect-ratio: 21 / 9) {
+  .lead-story-media { height: 0; padding-top: 42.85%; position: relative; }
+  .lead-story-media img { position: absolute; top: 0; left: 0; }
 }
 .lead-story-media img {
-  width: 100%;
-  height: 100%;
-  max-height: 30rem;
+  width: 100%; height: 100%;
   object-fit: cover;
-  border-radius: var(--radius);
+  transition: transform 0.7s ease;
 }
-.lead-story h2 { margin-block: 0.75rem 0.9rem; }
+.lead-story:hover .lead-story-media img { transform: scale(1.02); }
+.lead-story-copy { display: grid; grid-template-columns: 1.25fr 1fr; gap: clamp(1.5rem, 4vw, 3.5rem); }
+.lead-story h2 {
+  font-size: clamp(2rem, 4.4vw, 3.25rem);
+  margin-block: 0.55rem 0;
+}
+.lead-story h2 a { text-decoration: none; }
+.lead-story:hover h2 { color: var(--accent); }
+
+@media (max-width: 60em) {
+  .lead-story-copy { grid-template-columns: 1fr; gap: 1rem; }
+  .lead-story-media { aspect-ratio: 16 / 9; }
+  @supports not (aspect-ratio: 16 / 9) {
+    .lead-story-media { height: 0; padding-top: 56.25%; }
+  }
+}
 
 /* ---------- ARTICLE CARDS ---------- */
 .story-grid {
@@ -203,23 +223,57 @@ h1, h2, h3, h4 {
   line-height: 1.6;
 }
 
-/* ---------- CLUSTER STRIP ---------- */
+/* ---------- SECTION CARDS ----------
+   Lives inside .shell so it aligns with every other column on the page.
+   The earlier full-bleed version broke that alignment badly. */
 .clusters {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-  gap: 1px;
-  background: var(--rule);
-  border-block: 1px solid var(--rule);
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: clamp(1.25rem, 2.5vw, 2rem);
 }
 .cluster {
-  background: var(--paper);
-  padding: clamp(1.25rem, 2.5vw, 1.9rem) clamp(1rem, 2vw, 1.5rem);
+  padding-top: 1.1rem;
+  border-top: 2px solid var(--ink);
   text-decoration: none;
-  transition: background 0.25s;
+  transition: border-color 0.25s;
 }
-.cluster:hover { background: var(--accent-wash); }
-.cluster h3 { font-size: 1.05rem; margin-bottom: 0.35rem; }
-.cluster p { margin: 0; font-size: 0.85rem; color: var(--muted); line-height: 1.55; }
+.cluster:hover { border-top-color: var(--accent); }
+.cluster h3 { font-size: 1.15rem; margin-bottom: 0.4rem; }
+.cluster:hover h3 { color: var(--accent); }
+.cluster p { margin: 0; font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
+
+/* ---------- STORY LIST ----------
+   Used instead of the card grid while the archive is small: a two-item
+   card grid leaves obvious holes, a list never does. */
+.story-list { border-top: 1px solid var(--rule-strong); }
+.story-row {
+  display: grid;
+  grid-template-columns: 13rem 1fr;
+  gap: clamp(1.25rem, 3vw, 2.5rem);
+  align-items: start;
+  padding-block: clamp(1.5rem, 3vw, 2.25rem);
+  border-bottom: 1px solid var(--rule);
+  text-decoration: none;
+}
+.story-row-media {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--paper-alt);
+}
+@supports not (aspect-ratio: 4 / 3) {
+  .story-row-media { height: 0; padding-top: 75%; position: relative; }
+  .story-row-media img { position: absolute; top: 0; left: 0; }
+}
+.story-row-media img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.story-row:hover .story-row-media img { transform: scale(1.04); }
+.story-row h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); margin-block: 0.5rem 0.55rem; }
+.story-row:hover h3 { color: var(--accent); }
+.story-row p { margin: 0 0 0.6rem; color: var(--muted); font-size: 0.98rem; max-width: 60ch; }
 
 /* ---------- ARTICLE PAGE ---------- */
 .article-head { padding-block: clamp(2.5rem, 5vw, 4rem) clamp(1.5rem, 3vw, 2.5rem); }
@@ -337,4 +391,31 @@ h1, h2, h3, h4 {
   .clusters { grid-template-columns: 1fr; }
   .foot-grid { grid-template-columns: 1fr; }
   .article-head h1 { max-width: none; }
+}
+
+/* ---------- MASTHEAD RULE ----------
+   A thin strap above the wordmark. Costs one line, and is most of what
+   makes a page read as a publication rather than a company blog. */
+.strap {
+  border-bottom: 1px solid var(--rule);
+  background: var(--paper-alt);
+}
+.strap-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 0.5rem;
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.strap-inner span:last-child { text-align: right; }
+
+@media (max-width: 40em) {
+  .strap-inner { font-size: 0.65rem; letter-spacing: 0.06em; }
+  .story-row { grid-template-columns: 1fr; gap: 0.9rem; }
+  .story-row-media { aspect-ratio: 16 / 9; }
 }
