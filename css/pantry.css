@@ -423,3 +423,29 @@ h1, h2, h3, h4 {
   .story-row { grid-template-columns: 1fr; gap: 0.9rem; }
   .story-row-media { aspect-ratio: 16 / 9; }
 }
+
+/* Text-led rows, for pieces that run without a hero image. Reusing the same
+   three stock photos across every article looks worse than not using one. */
+.story-row--text { grid-template-columns: 13rem 1fr; }
+.story-row--text .story-row-rule {
+  border-top: 2px solid var(--ink);
+  padding-top: 0.9rem;
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.story-row--text:hover .story-row-rule { border-top-color: var(--accent); }
+
+/* Typographic article opening, used when there is no hero photograph */
+.article-open {
+  border-top: 3px solid var(--ink);
+  padding-top: clamp(1.5rem, 3vw, 2.25rem);
+  margin-bottom: clamp(1rem, 2vw, 1.5rem);
+}
+
+@media (max-width: 40em) {
+  .story-row--text { grid-template-columns: 1fr; }
+}
