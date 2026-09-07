@@ -1,119 +1,121 @@
 /* ==========================================================
    THE MALAYSIAN PANTRY
-   Editorial design system. Deliberately unrelated to the
-   Tropicor Foods site: warm ground, serif voice, magazine
-   rhythm rather than corporate minimal.
+   Editorial journal. Three voices: a high-contrast display serif,
+   a reading serif with character, and a mono for everything
+   procedural (numbers, labels, timings). The mono is what stops
+   this reading as another centred-column food blog.
    ========================================================== */
 
 :root {
-  /* Warm paper, not the cool grey-green of the Tropicor site */
-  --paper:        #FCF8F1;
-  --paper-alt:    #F5EEE1;
-  --card:         #FFFDF9;
-  --ink:          #201B15;
-  --ink-soft:     #453C31;
-  --muted:        #6E6154;
-  --rule:         #E4DAC8;
-  --rule-strong:  #CDBEA6;
+  --paper:       #F7F3EA;
+  --paper-deep:  #EFE7D7;
+  --ink:         #16120E;
+  --ink-2:       #3C342B;
+  --muted:       #786C5C;
+  --rule:        #DCD1BB;
+  --rule-firm:   #B9AA8E;
+  --accent:      #B3341C;
+  --accent-wash: #F2E3DB;
 
-  /* Single spice accent */
-  --accent:       #A9401F;
-  --accent-deep:  #82301616;
-  --accent-wash:  #F3E4DA;
+  --display: 'Instrument Serif', Georgia, serif;
+  --body:    'Newsreader', Georgia, serif;
+  --mono:    'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
 
-  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
-  --font-body:    'Source Serif 4', Georgia, 'Times New Roman', serif;
-  --font-ui:      -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-
-  --measure:      68ch;
-  --shell:        76rem;
-  --radius:       2px;   /* near-square: print feel, not app feel */
+  --shell:   82rem;
+  --measure: 34rem;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-
 html { -webkit-text-size-adjust: 100%; }
 
 body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
-  font-family: var(--font-body);
-  font-size: 1.0625rem;
-  line-height: 1.7;
-  font-synthesis-weight: none;
+  font-family: var(--body);
+  font-size: 1.125rem;
+  line-height: 1.62;
+  font-optical-sizing: auto;
   -webkit-font-smoothing: antialiased;
 }
 
 img { max-width: 100%; display: block; }
 a { color: inherit; }
-
-/* Headings are never underlined, wherever they are wrapped in a link.
-   Set here rather than per-component so a new template cannot reintroduce it. */
+h1, h2, h3, h4 { margin: 0; font-weight: 400; }
 h1 a, h2 a, h3 a, h4 a { text-decoration: none; color: inherit; }
 
 .shell {
   width: 100%;
   max-width: var(--shell);
   margin-inline: auto;
-  padding-inline: clamp(1.25rem, 5vw, 3rem);
+  padding-inline: clamp(1.25rem, 4vw, 3.5rem);
 }
 
-.measure { max-width: var(--measure); }
-
-/* ---------- TYPE ---------- */
-h1, h2, h3, h4 {
-  font-family: var(--font-display);
-  font-weight: 600;
-  line-height: 1.15;
-  letter-spacing: -0.012em;
-  margin: 0;
+/* ---------- TYPE ----------
+   Display is Instrument Serif: one weight, very high contrast, and it
+   only works at scale. Anything under about 1.6rem uses the body face. */
+.display {
+  font-family: var(--display);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
   text-wrap: balance;
 }
+.d-xl { font-size: clamp(2.9rem, 7.5vw, 6rem); }
+.d-lg { font-size: clamp(2.3rem, 5vw, 3.9rem); }
+.d-md { font-size: clamp(1.75rem, 3.2vw, 2.6rem); }
 
-.t-hero    { font-size: clamp(2.25rem, 5.5vw, 4rem); }
-.t-title   { font-size: clamp(1.75rem, 3.4vw, 2.6rem); }
-.t-section { font-size: clamp(1.4rem, 2.4vw, 1.9rem); }
-
-.eyebrow {
-  font-family: var(--font-ui);
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.13em;
+.label {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--accent);
 }
+.label--quiet { color: var(--muted); }
 
 .meta {
-  font-family: var(--font-ui);
-  font-size: 0.8rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
   color: var(--muted);
-  letter-spacing: 0.01em;
+  font-variant-numeric: tabular-nums;
 }
 
-.lede {
-  font-size: clamp(1.15rem, 1.9vw, 1.35rem);
-  line-height: 1.6;
-  color: var(--ink-soft);
+.stand {
+  font-size: clamp(1.15rem, 1.6vw, 1.4rem);
+  line-height: 1.5;
+  color: var(--ink-2);
+  font-style: italic;
 }
 
-/* ---------- MASTHEAD ---------- */
-.masthead {
-  border-bottom: 1px solid var(--rule);
-  background: var(--paper);
+/* ---------- STRAP + MASTHEAD ---------- */
+.strap { border-bottom: 1px solid var(--rule); }
+.strap-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 0.6rem;
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
 }
+
+.masthead { border-bottom: 3px solid var(--ink); }
 .masthead-inner {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
-  gap: 1.5rem;
-  min-height: 4.75rem;
+  gap: 2rem;
+  padding-block: clamp(1.1rem, 2.5vw, 1.9rem);
 }
 .wordmark {
-  font-family: var(--font-display);
-  font-size: clamp(1.15rem, 2.2vw, 1.5rem);
-  font-weight: 600;
-  letter-spacing: -0.015em;
+  font-family: var(--display);
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  line-height: 0.9;
+  letter-spacing: -0.025em;
   text-decoration: none;
   white-space: nowrap;
 }
@@ -122,330 +124,293 @@ h1, h2, h3, h4 {
 .nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.4rem 1.6rem;
-  font-family: var(--font-ui);
-  font-size: 0.85rem;
+  gap: 0.3rem 1.5rem;
   list-style: none;
-  margin: 0;
+  margin: 0 0 0.35rem;
   padding: 0;
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.06em;
 }
 .nav a {
   text-decoration: none;
-  color: var(--ink-soft);
-  padding-block: 0.35rem;
-  border-bottom: 2px solid transparent;
+  color: var(--ink-2);
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
   transition: color 0.2s, border-color 0.2s;
 }
 .nav a:hover { color: var(--accent); border-bottom-color: var(--accent); }
 
-/* ---------- SECTIONS ---------- */
-.band { padding-block: clamp(3rem, 6vw, 5rem); }
-.band--alt { background: var(--paper-alt); }
-.band--tight { padding-block: clamp(2rem, 4vw, 3rem); }
+/* ---------- BANDS ---------- */
+.band { padding-block: clamp(2.5rem, 5vw, 4.5rem); }
+.band--tight { padding-block: clamp(1.75rem, 3vw, 2.75rem); }
+.band--deep { background: var(--paper-deep); }
 
-.rule-head {
+.section-head {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
   gap: 1rem;
-  padding-bottom: 0.9rem;
-  margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
-  border-bottom: 1px solid var(--rule-strong);
+  padding-bottom: 0.7rem;
+  border-bottom: 2px solid var(--ink);
+  margin-bottom: clamp(1.25rem, 2.5vw, 2rem);
 }
 
-/* ---------- LEAD ARTICLE ----------
-   The front page needs one thing with real presence. Image leads, headline
-   is set at hero scale rather than the timid mid-size it had before. */
-.lead-story { display: grid; gap: clamp(1.5rem, 3.5vw, 2.75rem); }
-.lead-story-media {
-  aspect-ratio: 21 / 9;
+/* ---------- LEAD ----------
+   Asymmetric on purpose: the headline occupies its own wide column and the
+   standfirst sits below-right, so the page does not open with a centred slab. */
+.lead { display: grid; gap: clamp(1.25rem, 2.5vw, 2rem); }
+.lead-media {
+  aspect-ratio: 2 / 1;
   overflow: hidden;
-  border-radius: var(--radius);
-  background: var(--paper-alt);
+  background: var(--paper-deep);
 }
-@supports not (aspect-ratio: 21 / 9) {
-  .lead-story-media { height: 0; padding-top: 42.85%; position: relative; }
-  .lead-story-media img { position: absolute; top: 0; left: 0; }
+@supports not (aspect-ratio: 2 / 1) {
+  .lead-media { height: 0; padding-top: 50%; position: relative; }
+  .lead-media img { position: absolute; inset: 0; }
 }
-.lead-story-media img {
+.lead-media img {
   width: 100%; height: 100%;
   object-fit: cover;
-  transition: transform 0.7s ease;
+  filter: saturate(0.94);
+  transition: transform 0.8s cubic-bezier(0.2, 0, 0.1, 1);
 }
-.lead-story:hover .lead-story-media img { transform: scale(1.02); }
-.lead-story-copy { display: grid; grid-template-columns: 1.25fr 1fr; gap: clamp(1.5rem, 4vw, 3.5rem); }
-.lead-story h2 {
-  font-size: clamp(2rem, 4.4vw, 3.25rem);
-  margin-block: 0.55rem 0;
-}
-.lead-story h2 a { text-decoration: none; }
-.lead-story:hover h2 { color: var(--accent); }
+.lead:hover .lead-media img { transform: scale(1.025); }
 
-@media (max-width: 60em) {
-  .lead-story-copy { grid-template-columns: 1fr; gap: 1rem; }
-  .lead-story-media { aspect-ratio: 16 / 9; }
-  @supports not (aspect-ratio: 16 / 9) {
-    .lead-story-media { height: 0; padding-top: 56.25%; }
-  }
-}
-
-/* ---------- ARTICLE CARDS ---------- */
-.story-grid {
+.lead-body {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: clamp(1.5rem, 3vw, 2.5rem);
+  grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 4rem);
+  align-items: end;
 }
-.story {
-  display: flex;
-  flex-direction: column;
-  gap: 0.7rem;
-  text-decoration: none;
-}
-.story-media {
-  aspect-ratio: 3 / 2;
-  overflow: hidden;
-  border-radius: var(--radius);
-  background: var(--paper-alt);
-}
-@supports not (aspect-ratio: 3 / 2) {
-  .story-media { height: 0; padding-top: 66.66%; position: relative; }
-  .story-media img { position: absolute; top: 0; left: 0; }
-}
-.story-media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-.story:hover .story-media img { transform: scale(1.03); }
-.story h3 { font-size: 1.22rem; }
-.story:hover h3 { color: var(--accent); }
-.story p {
-  margin: 0;
-  font-size: 0.95rem;
-  color: var(--muted);
-  line-height: 1.6;
-}
+.lead h2 { margin-top: 0.4rem; }
+.lead:hover h2 { color: var(--accent); }
+.lead-aside { padding-bottom: 0.4rem; border-top: 1px solid var(--rule-firm); padding-top: 0.9rem; }
 
-/* ---------- SECTION CARDS ----------
-   Lives inside .shell so it aligns with every other column on the page.
-   The earlier full-bleed version broke that alignment badly. */
-.clusters {
+/* ---------- NUMBERED INDEX ----------
+   The article list is set as a numbered index: mono numeral hanging in its
+   own column, rules between entries, image right. Structure carries the
+   design here rather than decoration. */
+.index { border-top: 2px solid var(--ink); }
+.entry {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
-  gap: clamp(1.25rem, 2.5vw, 2rem);
-}
-.cluster {
-  padding-top: 1.1rem;
-  border-top: 2px solid var(--ink);
-  text-decoration: none;
-  transition: border-color 0.25s;
-}
-.cluster:hover { border-top-color: var(--accent); }
-.cluster h3 { font-size: 1.15rem; margin-bottom: 0.4rem; }
-.cluster:hover h3 { color: var(--accent); }
-.cluster p { margin: 0; font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
-
-/* ---------- STORY LIST ----------
-   Used instead of the card grid while the archive is small: a two-item
-   card grid leaves obvious holes, a list never does. */
-.story-list { border-top: 1px solid var(--rule-strong); }
-.story-row {
-  display: grid;
-  grid-template-columns: 13rem 1fr;
-  gap: clamp(1.25rem, 3vw, 2.5rem);
+  grid-template-columns: 3.5rem minmax(0, 1fr) 13rem;
+  gap: clamp(1rem, 2.5vw, 2.25rem);
   align-items: start;
-  padding-block: clamp(1.5rem, 3vw, 2.25rem);
+  padding-block: clamp(1.5rem, 2.5vw, 2.1rem);
   border-bottom: 1px solid var(--rule);
   text-decoration: none;
+  transition: background 0.25s;
 }
-.story-row-media {
+.entry:hover { background: color-mix(in srgb, var(--accent-wash) 55%, transparent); }
+@supports not (background: color-mix(in srgb, red 50%, transparent)) {
+  .entry:hover { background: var(--accent-wash); }
+}
+.entry-no {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  padding-top: 0.4rem;
+  font-variant-numeric: tabular-nums;
+}
+.entry h3 {
+  font-family: var(--display);
+  font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+  line-height: 1.04;
+  letter-spacing: -0.015em;
+  margin-block: 0.25rem 0.45rem;
+}
+.entry:hover h3 { color: var(--accent); }
+.entry p {
+  margin: 0 0 0.6rem;
+  font-size: 0.98rem;
+  color: var(--ink-2);
+  max-width: 52ch;
+}
+.entry-media {
   aspect-ratio: 4 / 3;
   overflow: hidden;
-  border-radius: var(--radius);
-  background: var(--paper-alt);
+  background: var(--paper-deep);
 }
 @supports not (aspect-ratio: 4 / 3) {
-  .story-row-media { height: 0; padding-top: 75%; position: relative; }
-  .story-row-media img { position: absolute; top: 0; left: 0; }
+  .entry-media { height: 0; padding-top: 75%; position: relative; }
+  .entry-media img { position: absolute; inset: 0; }
 }
-.story-row-media img {
+.entry-media img {
   width: 100%; height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  filter: saturate(0.94);
+  transition: transform 0.6s cubic-bezier(0.2, 0, 0.1, 1);
 }
-.story-row:hover .story-row-media img { transform: scale(1.04); }
-.story-row h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); margin-block: 0.5rem 0.55rem; }
-.story-row:hover h3 { color: var(--accent); }
-.story-row p { margin: 0 0 0.6rem; color: var(--muted); font-size: 0.98rem; max-width: 60ch; }
+.entry:hover .entry-media img { transform: scale(1.05); }
+/* Entries with no photograph keep the third column as air, not a grey box */
+.entry--text .entry-media { display: none; }
 
-/* ---------- ARTICLE PAGE ---------- */
-.article-head { padding-block: clamp(2.5rem, 5vw, 4rem) clamp(1.5rem, 3vw, 2.5rem); }
-.article-head h1 { margin-block: 0.9rem 1.1rem; max-width: 22ch; }
-.article-head .lede { max-width: 58ch; }
+/* ---------- SECTION CARDS ---------- */
+.sections { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 0; }
+.sec {
+  padding: 1.1rem clamp(1rem, 2vw, 1.75rem) 1.4rem 0;
+  border-top: 1px solid var(--rule-firm);
+  text-decoration: none;
+}
+.sec h3 { font-family: var(--display); font-size: 1.5rem; letter-spacing: -0.015em; margin-bottom: 0.3rem; }
+.sec:hover h3 { color: var(--accent); }
+.sec p { margin: 0; font-size: 0.92rem; color: var(--muted); line-height: 1.55; }
 
-.article-hero img {
+/* ---------- ARTICLE ----------
+   Two columns: a narrow rail carrying section, date and reading time, and
+   the text column at a proper reading measure. */
+.article-head { padding-block: clamp(2rem, 4vw, 3.5rem) clamp(1.25rem, 2.5vw, 2rem); }
+.article-head h1 { max-width: 20ch; margin-block: 0.5rem 1rem; }
+.article-head .stand { max-width: 46ch; }
+
+.hero-figure { margin: 0 0 clamp(1.5rem, 3vw, 2.5rem); }
+.hero-figure img {
   width: 100%;
-  max-height: 34rem;
+  max-height: 32rem;
   object-fit: cover;
-  border-radius: var(--radius);
+  filter: saturate(0.94);
 }
-.article-hero figcaption,
-.figure figcaption {
-  margin-top: 0.6rem;
-  font-family: var(--font-ui);
-  font-size: 0.78rem;
+figcaption {
+  margin-top: 0.55rem;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
   color: var(--muted);
 }
-.figure { margin: clamp(2rem, 4vw, 3rem) 0; }
-.figure img { width: 100%; border-radius: var(--radius); }
 
-.prose { max-width: var(--measure); }
-.prose > * + * { margin-top: 1.35rem; }
+.article-grid {
+  display: grid;
+  grid-template-columns: 9rem minmax(0, var(--measure)) 1fr;
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  align-items: start;
+}
+.rail { position: sticky; top: 1.5rem; border-top: 2px solid var(--ink); padding-top: 0.7rem; }
+.rail dl { margin: 0; font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.05em; }
+.rail dt { color: var(--muted); text-transform: uppercase; margin-top: 0.85rem; }
+.rail dt:first-child { margin-top: 0; }
+.rail dd { margin: 0.15rem 0 0; color: var(--ink-2); }
+
+.prose { font-size: 1.1875rem; }
+.prose > * + * { margin-top: 1.3rem; }
+.prose > p:first-child::first-line {
+  font-variant-caps: small-caps;
+  letter-spacing: 0.03em;
+}
 .prose h2 {
-  font-size: clamp(1.4rem, 2.4vw, 1.85rem);
-  margin-top: clamp(2.5rem, 4.5vw, 3.5rem);
-  padding-top: 0.4rem;
+  font-family: var(--display);
+  font-size: clamp(1.65rem, 2.6vw, 2.15rem);
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  margin-top: clamp(2.25rem, 4vw, 3.25rem);
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--rule-firm);
 }
 .prose h3 {
-  font-size: clamp(1.15rem, 1.8vw, 1.35rem);
-  margin-top: clamp(1.75rem, 3vw, 2.5rem);
+  font-family: var(--body);
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 0.01em;
+  margin-top: 1.9rem;
 }
-.prose ul, .prose ol { padding-left: 1.35rem; }
-.prose li + li { margin-top: 0.5rem; }
-.prose strong { font-weight: 700; }
+.prose ul, .prose ol { padding-left: 1.2rem; }
+.prose li + li { margin-top: 0.45rem; }
+.prose strong { font-weight: 600; }
+.prose em { font-style: italic; }
 .prose a {
   color: var(--accent);
-  text-underline-offset: 3px;
   text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
 }
 .prose blockquote {
-  margin: clamp(2rem, 4vw, 2.75rem) 0;
-  padding-left: 1.4rem;
-  border-left: 3px solid var(--accent);
-  font-size: 1.12rem;
+  margin: clamp(1.75rem, 3vw, 2.5rem) 0;
+  padding-left: 1.3rem;
+  border-left: 2px solid var(--accent);
+  font-size: 1.22rem;
   font-style: italic;
-  color: var(--ink-soft);
+  color: var(--ink-2);
 }
 
-/* Aside box for practical detail that would interrupt the flow */
+/* Aside for practical detail that would otherwise interrupt the argument */
 .note {
-  margin: clamp(2rem, 4vw, 2.75rem) 0;
-  padding: clamp(1.25rem, 2.5vw, 1.75rem);
-  background: var(--accent-wash);
-  border-radius: var(--radius);
+  margin: clamp(1.75rem, 3vw, 2.5rem) 0;
+  padding: clamp(1.1rem, 2vw, 1.6rem);
+  background: var(--paper-deep);
+  border-left: 3px solid var(--accent);
 }
-.note h3 { font-size: 1.05rem; margin-bottom: 0.5rem; }
-.note p, .note li { font-size: 0.95rem; }
-.note > * + * { margin-top: 0.7rem; }
+.note h3 {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 0.6rem;
+}
+.note > * + * { margin-top: 0.65rem; }
+.note p, .note li { font-size: 1rem; }
 
 /* ---------- FOOTER ---------- */
-.foot {
-  border-top: 1px solid var(--rule-strong);
-  padding-block: clamp(2.5rem, 5vw, 3.5rem);
-  background: var(--paper-alt);
-}
+.foot { border-top: 3px solid var(--ink); padding-block: clamp(2.25rem, 4vw, 3.25rem); }
 .foot-grid {
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr;
+  grid-template-columns: 1.6fr 1fr 1fr;
   gap: clamp(1.5rem, 4vw, 3rem);
 }
 .foot h4 {
-  font-family: var(--font-ui);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.13em;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--muted);
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.75rem;
 }
-.foot ul { list-style: none; margin: 0; padding: 0; font-size: 0.92rem; }
-.foot li + li { margin-top: 0.45rem; }
-.foot a { color: var(--ink-soft); text-decoration: none; }
+.foot ul { list-style: none; margin: 0; padding: 0; font-size: 0.98rem; }
+.foot li + li { margin-top: 0.35rem; }
+.foot a { color: var(--ink-2); text-decoration: none; }
 .foot a:hover { color: var(--accent); }
 .foot-note {
-  margin-top: clamp(2rem, 4vw, 2.75rem);
-  padding-top: 1.25rem;
+  margin-top: clamp(1.75rem, 3vw, 2.5rem);
+  padding-top: 1.1rem;
   border-top: 1px solid var(--rule);
-  font-family: var(--font-ui);
-  font-size: 0.8rem;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  line-height: 1.7;
+  letter-spacing: 0.03em;
   color: var(--muted);
+  max-width: 78ch;
 }
 .foot-note a { color: var(--accent); }
 
 /* ---------- RESPONSIVE ---------- */
-@media (max-width: 60em) {
-  .lead-story { grid-template-columns: 1fr; }
-  .lead-story-media { order: -1; }
-  .story-grid { grid-template-columns: repeat(2, 1fr); }
-  .clusters { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 68em) {
+  .article-grid { grid-template-columns: 7rem minmax(0, 1fr); }
+  .rail { position: static; }
+}
+
+@media (max-width: 56em) {
+  .lead-body { grid-template-columns: 1fr; align-items: start; gap: 1rem; }
+  .lead-aside { border-top: none; padding-top: 0; }
+  .entry { grid-template-columns: 2.5rem minmax(0, 1fr) 9rem; gap: 1rem; }
   .foot-grid { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 40em) {
   body { font-size: 1.0625rem; }
-  .masthead-inner {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-    padding-block: 0.9rem;
-  }
-  .nav { gap: 0.3rem 1.1rem; font-size: 0.82rem; }
-  .story-grid { grid-template-columns: 1fr; gap: 2rem; }
-  .clusters { grid-template-columns: 1fr; }
+  .masthead-inner { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+  .nav { margin-bottom: 0; gap: 0.3rem 1.1rem; font-size: 0.7rem; }
+  .lead-media { aspect-ratio: 4 / 3; }
+  @supports not (aspect-ratio: 4 / 3) { .lead-media { height: 0; padding-top: 75%; } }
+  .entry { grid-template-columns: 2rem minmax(0, 1fr); }
+  .entry-media { display: none; }
+  .article-grid { grid-template-columns: 1fr; }
+  .rail { border-top-width: 1px; }
+  .rail dl { display: flex; flex-wrap: wrap; gap: 0 1.5rem; }
+  .rail dt { margin-top: 0; }
+  .rail dd { margin-right: 0.5rem; }
+  .prose { font-size: 1.0625rem; }
   .foot-grid { grid-template-columns: 1fr; }
-  .article-head h1 { max-width: none; }
-}
-
-/* ---------- MASTHEAD RULE ----------
-   A thin strap above the wordmark. Costs one line, and is most of what
-   makes a page read as a publication rather than a company blog. */
-.strap {
-  border-bottom: 1px solid var(--rule);
-  background: var(--paper-alt);
-}
-.strap-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding-block: 0.5rem;
-  font-family: var(--font-ui);
-  font-size: 0.72rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-.strap-inner span:last-child { text-align: right; }
-
-@media (max-width: 40em) {
-  .strap-inner { font-size: 0.65rem; letter-spacing: 0.06em; }
-  .story-row { grid-template-columns: 1fr; gap: 0.9rem; }
-  .story-row-media { aspect-ratio: 16 / 9; }
-}
-
-/* Text-led rows, for pieces that run without a hero image. Reusing the same
-   three stock photos across every article looks worse than not using one. */
-.story-row--text { grid-template-columns: 13rem 1fr; }
-.story-row--text .story-row-rule {
-  border-top: 2px solid var(--ink);
-  padding-top: 0.9rem;
-  font-family: var(--font-ui);
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.13em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-.story-row--text:hover .story-row-rule { border-top-color: var(--accent); }
-
-/* Typographic article opening, used when there is no hero photograph */
-.article-open {
-  border-top: 3px solid var(--ink);
-  padding-top: clamp(1.5rem, 3vw, 2.25rem);
-  margin-bottom: clamp(1rem, 2vw, 1.5rem);
-}
-
-@media (max-width: 40em) {
-  .story-row--text { grid-template-columns: 1fr; }
+  .sec { padding-right: 0; }
 }
