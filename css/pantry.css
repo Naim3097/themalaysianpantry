@@ -48,6 +48,10 @@ body {
 img { max-width: 100%; display: block; }
 a { color: inherit; }
 
+/* Headings are never underlined, wherever they are wrapped in a link.
+   Set here rather than per-component so a new template cannot reintroduce it. */
+h1 a, h2 a, h3 a, h4 a { text-decoration: none; color: inherit; }
+
 .shell {
   width: 100%;
   max-width: var(--shell);
