@@ -17,172 +17,287 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/pantry.css">
+<link rel="stylesheet" href="/css/pantry.css">
 </head>
 <body>
 
-<div class="strap">
-  <div class="shell strap-inner">
+<!-- ============ TOP BAR ============ -->
+<div class="topbar">
+  <div class="shell topbar-inner">
     <span>Ingredients &middot; Cooking &middot; The business of food</span>
-    <span>Klang, Malaysia</span>
+    <span><a href="/about">Published by Tropicor Foods, Klang</a></span>
   </div>
 </div>
 
+<!-- ============ MASTHEAD ============ -->
 <header class="masthead">
   <div class="shell masthead-inner">
     <a href="/" class="wordmark">The Malaysian <em>Pantry</em></a>
-    <nav aria-label="Sections">
+
+    <nav aria-label="Main">
       <ul class="nav">
-        <li><a href="/ingredients">Ingredients</a></li>
-        <li><a href="/technique">Technique</a></li>
-        <li><a href="/halal">Halal</a></li>
-        <li><a href="/food-business">Food Business</a></li>
-        <li><a href="/about">About</a></li>
+        <li>
+          <a href="/ingredients" class="nav-link">Browse
+            <svg viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5"/></svg>
+          </a>
+          <div class="mega">
+            <div class="mega-grid">
+              <a class="mega-tile" href="/ingredients">
+                <div class="mega-tile-img"><img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=400&q=65&auto=format&fit=crop" alt="" loading="lazy"></div>
+                <h4>Ingredients</h4>
+                <p>What things are, and how to judge them at the market.</p>
+              </a>
+              <a class="mega-tile" href="/technique">
+                <div class="mega-tile-img"><img src="https://images.unsplash.com/photo-1596797038530-2c107229654b?w=400&q=65&auto=format&fit=crop" alt="" loading="lazy"></div>
+                <h4>Technique</h4>
+                <p>Why methods work, not just what to do.</p>
+              </a>
+              <a class="mega-tile" href="/halal">
+                <div class="mega-tile-img"><img src="https://images.unsplash.com/photo-1590779033100-9f60a05a013d?w=400&q=65&auto=format&fit=crop" alt="" loading="lazy"></div>
+                <h4>Halal</h4>
+                <p>Certification and labels, without the jargon.</p>
+              </a>
+              <a class="mega-tile" href="/food-business">
+                <div class="mega-tile-img"><img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=400&q=65&auto=format&fit=crop" alt="" loading="lazy"></div>
+                <h4>Food Business</h4>
+                <p>Licences, costing and scaling past the home kitchen.</p>
+              </a>
+            </div>
+            <div class="mega-foot">
+              <a class="chip chip--accent" href="/ingredients">Buying guides</a>
+              <a class="chip chip--accent" href="/technique">How it works</a>
+              <a class="chip chip--accent" href="/halal">Halal explained</a>
+              <a class="chip chip--accent" href="/food-business">For food businesses</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ingredients" class="nav-link">Ingredients</a></li>
+        <li><a href="/halal" class="nav-link">Halal</a></li>
+        <li><a href="/about" class="nav-link">About</a></li>
       </ul>
     </nav>
+
+    <div class="head-actions">
+      <button class="search-trigger" data-open-search aria-label="Search the site">
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.6"/><path d="M11 11l4 4" stroke="currentColor" stroke-width="1.6"/></svg>
+        <span>What are you cooking?</span>
+        <kbd>/</kbd>
+      </button>
+      <button class="icon-btn" data-open-search aria-label="Search">
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.6"/><path d="M11 11l4 4" stroke="currentColor" stroke-width="1.6"/></svg>
+      </button>
+      <button class="icon-btn" data-open-drawer aria-label="Menu" aria-controls="drawer">
+        <svg viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M0 1h18M0 6h18M0 11h18" stroke="currentColor" stroke-width="1.6"/></svg>
+      </button>
+    </div>
   </div>
 </header>
 
 <main>
 
-  <!-- LEAD -->
+  <!-- ============ 1. FEATURED ============ -->
   <section class="band band--tight">
     <div class="shell">
-      <a class="lead" href="/articles/how-to-build-a-rempah">
-        <div class="lead-media">
-          <img src="https://images.unsplash.com/photo-1596797038530-2c107229654b?w=1800&q=72&auto=format&fit=crop" alt="A pan of curry finished with fresh coriander">
+      <a class="card card--feature" href="/articles/how-to-build-a-rempah">
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1596797038530-2c107229654b?w=1400&q=72&auto=format&fit=crop" alt="A pan of curry finished with fresh coriander">
         </div>
-        <div class="lead-body">
-          <div>
-            <span class="label">Technique</span>
-            <h2 class="display d-xl">How to build a rempah properly</h2>
-          </div>
-          <div class="lead-aside">
-            <p class="stand" style="margin: 0;">Almost every disappointing curry made at home fails at the same step, and it is not the recipe. It is the twenty minutes most people skip.</p>
-            <p class="meta" style="margin: 1rem 0 0;">07.09.2026 &nbsp;/&nbsp; 9 min</p>
-          </div>
+        <div>
+          <span class="label">Technique &middot; Featured</span>
+          <h2 class="display">How to build a rempah properly</h2>
+          <p>Almost every disappointing curry made at home fails at the same step, and it is not the recipe. It is the twenty minutes most people skip.</p>
+          <span class="meta">07.09.2026 &nbsp;/&nbsp; 9 min read</span>
         </div>
       </a>
     </div>
   </section>
 
-  <!-- STATEMENT -->
-  <section class="band band--deep band--tight">
+  <!-- Two supporting pieces -->
+  <section class="band band--tight">
     <div class="shell">
-      <p class="stand" style="margin: 0; max-width: 54ch; font-style: normal;">We write about Malaysian ingredients and the cooking built on them: what things actually are, how to judge them at the market, and why methods work. Alongside that, the practical side of food here, from halal certification to what breaks when a home recipe is scaled to a hundred portions.</p>
+      <div class="grid grid--3">
+        <a class="card card--standard" href="/articles/belacan-guide">
+          <div class="card-img"><img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=600&q=70&auto=format&fit=crop" alt="Spices, garlic and ginger on a pale wooden surface" loading="lazy"></div>
+          <span class="label">Ingredients</span>
+          <h3>Belacan: how it is made, how to use it, how to store it</h3>
+          <p>Judging a block at the market, why toasting is not optional, and keeping the smell out of your rice.</p>
+          <span class="meta">8 min read</span>
+        </a>
+        <a class="card card--standard" href="/articles/ikan-bilis-guide">
+          <div class="card-img"><img src="https://images.unsplash.com/photo-1590779033100-9f60a05a013d?w=600&q=70&auto=format&fit=crop" alt="Fresh produce laid out" loading="lazy"></div>
+          <span class="label">Ingredients</span>
+          <h3>Ikan bilis: grades, quality and how to choose</h3>
+          <p>Four piles at the market, four prices, and no labels. The yellowing that tells you a batch has turned.</p>
+          <span class="meta">8 min read</span>
+        </a>
+        <a class="card card--standard" href="/articles/halal-certification-malaysia">
+          <div class="card-img"><img src="https://images.unsplash.com/photo-1596797038530-2c107229654b?w=600&q=70&auto=format&fit=crop" alt="A pan of curry" loading="lazy"></div>
+          <span class="label">Halal</span>
+          <h3>How halal certification actually works in Malaysia</h3>
+          <p>The standard, the application, and the three things that most often send an application back.</p>
+          <span class="meta">9 min read</span>
+        </a>
+      </div>
     </div>
   </section>
 
-  <!-- INDEX -->
-  <section class="band">
+  <!-- ============ 2. BROWSE ============ -->
+  <section class="band band--deep" aria-labelledby="browse-h">
     <div class="shell">
-      <div class="section-head">
-        <h2 class="display d-md">The index</h2>
-        <span class="meta">Six pieces &nbsp;/&nbsp; new writing weekly</span>
+      <div class="sec-head">
+        <h2 class="display d-md" id="browse-h">Browse</h2>
+        <button class="more" data-open-search>Or search everything &rarr;</button>
       </div>
+      <div class="grid grid--4">
+        <a class="tile" href="/ingredients">
+          <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=500&q=68&auto=format&fit=crop" alt="" loading="lazy">
+          <div class="tile-body"><h3>Ingredients</h3><span class="meta">2 pieces</span></div>
+        </a>
+        <a class="tile" href="/technique">
+          <img src="https://images.unsplash.com/photo-1596797038530-2c107229654b?w=500&q=68&auto=format&fit=crop" alt="" loading="lazy">
+          <div class="tile-body"><h3>Technique</h3><span class="meta">1 piece</span></div>
+        </a>
+        <a class="tile" href="/halal">
+          <img src="https://images.unsplash.com/photo-1590779033100-9f60a05a013d?w=500&q=68&auto=format&fit=crop" alt="" loading="lazy">
+          <div class="tile-body"><h3>Halal</h3><span class="meta">2 pieces</span></div>
+        </a>
+        <a class="tile" href="/food-business">
+          <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=500&q=68&auto=format&fit=crop" alt="" loading="lazy">
+          <div class="tile-body"><h3>Food Business</h3><span class="meta">1 piece</span></div>
+        </a>
+      </div>
+    </div>
+  </section>
 
-      <div class="index">
-
-        <a class="entry" href="/articles/how-to-build-a-rempah">
-          <div class="entry-no">01</div>
+  <!-- ============ 3. LATEST ============ -->
+  <section class="band" aria-labelledby="latest-h">
+    <div class="shell">
+      <div class="sec-head">
+        <h2 class="display d-md" id="latest-h">Latest</h2>
+        <span class="meta">New writing every week</span>
+      </div>
+      <div class="stack">
+        <a class="card card--h" href="/articles/how-to-build-a-rempah">
+          <div class="card-img"><img src="https://images.unsplash.com/photo-1596797038530-2c107229654b?w=400&q=68&auto=format&fit=crop" alt="" loading="lazy"></div>
           <div>
             <span class="label">Technique</span>
             <h3>How to build a rempah properly</h3>
             <p>Almost every disappointing curry made at home fails at the same step, and it is not the recipe.</p>
             <span class="meta">07.09.2026 &nbsp;/&nbsp; 9 min</span>
           </div>
-          <div class="entry-media">
-            <img src="https://images.unsplash.com/photo-1596797038530-2c107229654b?w=600&q=70&auto=format&fit=crop" alt="A pan of curry finished with fresh coriander" loading="lazy">
-          </div>
         </a>
-
-        <a class="entry" href="/articles/belacan-guide">
-          <div class="entry-no">02</div>
-          <div>
-            <span class="label">Ingredients</span>
-            <h3>Belacan: how it is made, how to use it, how to store it</h3>
-            <p>Judging a block at the market, why toasting is not optional, and keeping the smell out of your rice.</p>
-            <span class="meta">07.09.2026 &nbsp;/&nbsp; 8 min</span>
-          </div>
-          <div class="entry-media">
-            <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=600&q=70&auto=format&fit=crop" alt="Spices, garlic and ginger arranged on a pale wooden surface" loading="lazy">
-          </div>
-        </a>
-
-        <a class="entry entry--text" href="/articles/halal-grey-areas">
-          <div class="entry-no">03</div>
+        <a class="card card--h" href="/articles/halal-grey-areas">
+          <div class="card-img"><img src="https://images.unsplash.com/photo-1590779033100-9f60a05a013d?w=400&q=68&auto=format&fit=crop" alt="" loading="lazy"></div>
           <div>
             <span class="label">Halal</span>
             <h3>The grey areas: emulsifiers, enzymes and alcohol in flavourings</h3>
             <p>Why some ingredients genuinely cannot be judged from the label, and the only reliable way to check.</p>
             <span class="meta">07.09.2026 &nbsp;/&nbsp; 9 min</span>
           </div>
-          <div class="entry-media"></div>
         </a>
-
-        <a class="entry" href="/articles/ikan-bilis-guide">
-          <div class="entry-no">04</div>
-          <div>
-            <span class="label">Ingredients</span>
-            <h3>Ikan bilis: grades, quality and how to choose</h3>
-            <p>Four piles at the market, four prices, and no labels. The yellowing that tells you a batch has turned.</p>
-            <span class="meta">07.09.2026 &nbsp;/&nbsp; 8 min</span>
-          </div>
-          <div class="entry-media">
-            <img src="https://images.unsplash.com/photo-1590779033100-9f60a05a013d?w=600&q=70&auto=format&fit=crop" alt="Fresh produce laid out" loading="lazy">
-          </div>
-        </a>
-
-        <a class="entry entry--text" href="/articles/mesti-gmp-haccp-explained">
-          <div class="entry-no">05</div>
+        <a class="card card--h" href="/articles/mesti-gmp-haccp-explained">
+          <div class="card-img"><img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=400&q=68&auto=format&fit=crop" alt="" loading="lazy"></div>
           <div>
             <span class="label">Food business</span>
             <h3>MESTI, GMP and HACCP in plain language</h3>
             <p>Three things that get used interchangeably, mean different things, and are none of them a halal certificate.</p>
             <span class="meta">07.09.2026 &nbsp;/&nbsp; 8 min</span>
           </div>
-          <div class="entry-media"></div>
         </a>
-
-        <a class="entry" href="/articles/halal-certification-malaysia">
-          <div class="entry-no">06</div>
-          <div>
-            <span class="label">Halal</span>
-            <h3>How halal certification actually works in Malaysia</h3>
-            <p>The standard, the application, what auditors really check, and the three things that most often send an application back.</p>
-            <span class="meta">07.09.2026 &nbsp;/&nbsp; 9 min</span>
-          </div>
-          <div class="entry-media">
-            <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=600&q=70&auto=format&fit=crop" alt="Spices and aromatics arranged on a pale wooden surface" loading="lazy">
-          </div>
-        </a>
-
       </div>
     </div>
   </section>
 
-  <!-- SECTIONS -->
-  <section class="band band--tight" aria-label="Browse by section">
+  <!-- ============ 4. EDITORIAL PICK ============ -->
+  <section class="band band--deep" aria-labelledby="start-h">
     <div class="shell">
-      <div class="section-head">
-        <h2 class="display d-md">Sections</h2>
+      <div class="sec-head">
+        <h2 class="display d-md" id="start-h">Start here</h2>
+        <span class="meta">If you read three things</span>
       </div>
-      <div class="sections">
-        <a class="sec" href="/ingredients">
-          <h3>Ingredients</h3>
-          <p>Belacan, ikan bilis, santan, gula Melaka. What they are and how to choose well.</p>
+      <div class="grid" style="grid-template-columns: 1fr 1fr; gap: var(--gap-lg);">
+        <div>
+          <p class="stand" style="margin: 0 0 1.25rem; max-width: 40ch;">The pieces we send people to most often. One about cooking, one about buying, one about the paperwork nobody explains properly.</p>
+          <a class="btn btn--ghost" href="/ingredients">See every section</a>
+        </div>
+        <div>
+          <a class="card card--compact" href="/articles/how-to-build-a-rempah">
+            <span class="num">01</span>
+            <div>
+              <h3>How to build a rempah properly</h3>
+              <span class="meta">Technique &nbsp;/&nbsp; 9 min</span>
+            </div>
+          </a>
+          <a class="card card--compact" href="/articles/belacan-guide">
+            <span class="num">02</span>
+            <div>
+              <h3>Belacan, judged at the market</h3>
+              <span class="meta">Ingredients &nbsp;/&nbsp; 8 min</span>
+            </div>
+          </a>
+          <a class="card card--compact" href="/articles/halal-certification-malaysia">
+            <span class="num">03</span>
+            <div>
+              <h3>How halal certification actually works</h3>
+              <span class="meta">Halal &nbsp;/&nbsp; 9 min</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 5. NEWSLETTER ============ -->
+  <section class="band band--ink" aria-labelledby="signup-h">
+    <div class="shell">
+      <div class="signup">
+        <div>
+          <span class="label">Weekly</span>
+          <h2 class="display d-lg" id="signup-h">One piece a week, nothing else</h2>
+          <p>New writing on Malaysian ingredients, technique and the business of food. No recipes you did not ask for, no sponsored posts.</p>
+        </div>
+        <div>
+          <!-- TODO: point action at a real email provider before launch.
+               A form that silently discards addresses is worse than no form. -->
+          <form class="signup-form" action="#" method="post" data-newsletter>
+            <label class="sr-only" for="email">Email address</label>
+            <input id="email" type="email" name="email" placeholder="your@email.com" required>
+            <button class="btn" type="submit">Subscribe</button>
+          </form>
+          <p class="signup-note">Not yet connected to a provider. See README before launch.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 6. FOR FOOD BUSINESSES ============ -->
+  <section class="band" aria-labelledby="biz-h">
+    <div class="shell">
+      <div class="sec-head">
+        <h2 class="display d-md" id="biz-h">If you make food for a living</h2>
+        <a class="more" href="/food-business">All food business &rarr;</a>
+      </div>
+      <div class="grid grid--3">
+        <a class="card card--standard" href="/articles/mesti-gmp-haccp-explained">
+          <div class="card-img"><img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=600&q=70&auto=format&fit=crop" alt="" loading="lazy"></div>
+          <span class="label">Food business</span>
+          <h3>MESTI, GMP and HACCP in plain language</h3>
+          <p>Which one you actually need, and why none of them is a halal certificate.</p>
+          <span class="meta">8 min read</span>
         </a>
-        <a class="sec" href="/technique">
-          <h3>Technique</h3>
-          <p>Rempah, wok hei, why sambal splits. The reasons behind the method.</p>
+        <a class="card card--standard" href="/articles/halal-certification-malaysia">
+          <div class="card-img"><img src="https://images.unsplash.com/photo-1596797038530-2c107229654b?w=600&q=70&auto=format&fit=crop" alt="" loading="lazy"></div>
+          <span class="label">Halal</span>
+          <h3>How halal certification actually works in Malaysia</h3>
+          <p>What auditors check, and where first applications come unstuck.</p>
+          <span class="meta">9 min read</span>
         </a>
-        <a class="sec" href="/halal">
-          <h3>Halal</h3>
-          <p>Certification, labels and the grey areas, without the jargon.</p>
-        </a>
-        <a class="sec" href="/food-business">
-          <h3>Food Business</h3>
-          <p>Licences, costing, shelf life and scaling past the home kitchen.</p>
+        <a class="card card--standard" href="/articles/halal-grey-areas">
+          <div class="card-img"><img src="https://images.unsplash.com/photo-1590779033100-9f60a05a013d?w=600&q=70&auto=format&fit=crop" alt="" loading="lazy"></div>
+          <span class="label">Halal</span>
+          <h3>The grey areas in halal ingredients</h3>
+          <p>The documentation habit that makes an audit survivable.</p>
+          <span class="meta">9 min read</span>
         </a>
       </div>
     </div>
@@ -190,12 +305,13 @@
 
 </main>
 
+<!-- ============ FOOTER ============ -->
 <footer class="foot">
   <div class="shell">
     <div class="foot-grid">
       <div>
         <a href="/" class="wordmark">The Malaysian <em>Pantry</em></a>
-        <p class="meta" style="margin-top: 0.9rem; max-width: 30ch; line-height: 1.7;">Ingredients, cooking and the business of food.</p>
+        <p class="meta" style="margin-top: 0.9rem; max-width: 30ch; line-height: 1.8;">Ingredients, cooking and the business of food in Malaysia.</p>
       </div>
       <div>
         <h4>Sections</h4>
@@ -207,16 +323,89 @@
         </ul>
       </div>
       <div>
+        <h4>Popular topics</h4>
+        <ul>
+          <li><a href="/articles/halal-certification-malaysia">Halal certification</a></li>
+          <li><a href="/articles/how-to-build-a-rempah">Making rempah</a></li>
+          <li><a href="/articles/belacan-guide">Belacan</a></li>
+          <li><a href="/articles/mesti-gmp-haccp-explained">MESTI and GMP</a></li>
+        </ul>
+      </div>
+      <div>
         <h4>About</h4>
         <ul>
           <li><a href="/about">About this site</a></li>
-          <li><a href="/contact">Contact</a></li>
+          <li><a href="https://www.tropicorfoods.com">Tropicor Foods</a></li>
+          <li><button class="more" data-open-search style="padding:0;">Search</button></li>
         </ul>
       </div>
     </div>
-    <p class="foot-note">The Malaysian Pantry is published by <a href="https://www.tropicorfoods.com">Tropicor Foods</a>, a halal-certified food ingredient manufacturer in Klang, Selangor. We write about the whole subject, not only the parts we sell into.</p>
+    <p class="foot-note">The Malaysian Pantry is published by <a href="https://www.tropicorfoods.com">Tropicor Foods</a>, a halal-certified food ingredient manufacturer in Klang, Selangor. We write about the whole subject, not only the parts we sell into. &copy; <span data-year>2026</span></p>
   </div>
 </footer>
 
+<!-- ============ SEARCH OVERLAY ============ -->
+<div class="search" id="search" data-close-search role="dialog" aria-modal="true" aria-label="Search">
+  <div class="search-panel">
+    <div class="shell">
+      <div class="search-bar">
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.6"/><path d="M11 11l4 4" stroke="currentColor" stroke-width="1.6"/></svg>
+        <input class="search-input" id="search-input" type="search" placeholder="What are you cooking?" autocomplete="off">
+        <button class="search-close" data-close-search>Close</button>
+      </div>
+
+      <div class="search-body">
+        <div id="search-default">
+          <div class="search-section">
+            <h3>Filter by section</h3>
+            <div class="chips">
+              <button class="chip" data-filter="Ingredients">Ingredients</button>
+              <button class="chip" data-filter="Technique">Technique</button>
+              <button class="chip" data-filter="Halal">Halal</button>
+              <button class="chip" data-filter="Food business">Food business</button>
+            </div>
+          </div>
+          <div class="search-section">
+            <h3>Try searching for</h3>
+            <div class="chips">
+              <a class="chip chip--accent" href="#" data-term="belacan">belacan</a>
+              <a class="chip chip--accent" href="#" data-term="ikan bilis">ikan bilis</a>
+              <a class="chip chip--accent" href="#" data-term="rempah">rempah</a>
+              <a class="chip chip--accent" href="#" data-term="halal">halal certification</a>
+              <a class="chip chip--accent" href="#" data-term="mesti">MESTI</a>
+              <a class="chip chip--accent" href="#" data-term="e471">E471</a>
+              <a class="chip chip--accent" href="#" data-term="storage">storage</a>
+            </div>
+          </div>
+        </div>
+        <div class="results" id="search-results"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ MOBILE DRAWER ============ -->
+<div class="drawer" id="drawer">
+  <div class="drawer-scrim" data-close-drawer></div>
+  <div class="drawer-panel" role="dialog" aria-modal="true" aria-label="Menu">
+    <div class="drawer-head">
+      <span class="label">Menu</span>
+      <button class="search-close" data-close-drawer>Close</button>
+    </div>
+    <button class="search-trigger" data-open-search style="display:flex; width:100%; margin-bottom:1.25rem;">
+      <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.6"/><path d="M11 11l4 4" stroke="currentColor" stroke-width="1.6"/></svg>
+      <span>What are you cooking?</span>
+    </button>
+    <ul class="drawer-nav">
+      <li><a href="/ingredients">Ingredients <span class="meta">2</span></a></li>
+      <li><a href="/technique">Technique <span class="meta">1</span></a></li>
+      <li><a href="/halal">Halal <span class="meta">2</span></a></li>
+      <li><a href="/food-business">Food Business <span class="meta">1</span></a></li>
+      <li><a href="/about">About</a></li>
+    </ul>
+  </div>
+</div>
+
+<script src="/js/pantry.js"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -17,31 +17,82 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/pantry.css">
+<link rel="stylesheet" href="/css/pantry.css">
 </head>
 <body>
 
-<div class="strap">
-  <div class="shell strap-inner">
+<!-- ============ TOP BAR ============ -->
+<div class="topbar">
+  <div class="shell topbar-inner">
     <span>Ingredients &middot; Cooking &middot; The business of food</span>
-    <span>Klang, Malaysia</span>
+    <span><a href="/about">Published by Tropicor Foods, Klang</a></span>
   </div>
 </div>
 
+<!-- ============ MASTHEAD ============ -->
 <header class="masthead">
   <div class="shell masthead-inner">
     <a href="/" class="wordmark">The Malaysian <em>Pantry</em></a>
-    <nav aria-label="Sections">
+
+    <nav aria-label="Main">
       <ul class="nav">
-        <li><a href="/ingredients">Ingredients</a></li>
-        <li><a href="/technique">Technique</a></li>
-        <li><a href="/halal">Halal</a></li>
-        <li><a href="/food-business">Food Business</a></li>
-        <li><a href="/about">About</a></li>
+        <li>
+          <a href="/ingredients" class="nav-link">Browse
+            <svg viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5"/></svg>
+          </a>
+          <div class="mega">
+            <div class="mega-grid">
+              <a class="mega-tile" href="/ingredients">
+                <div class="mega-tile-img"><img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=400&q=65&auto=format&fit=crop" alt="" loading="lazy"></div>
+                <h4>Ingredients</h4>
+                <p>What things are, and how to judge them at the market.</p>
+              </a>
+              <a class="mega-tile" href="/technique">
+                <div class="mega-tile-img"><img src="https://images.unsplash.com/photo-1596797038530-2c107229654b?w=400&q=65&auto=format&fit=crop" alt="" loading="lazy"></div>
+                <h4>Technique</h4>
+                <p>Why methods work, not just what to do.</p>
+              </a>
+              <a class="mega-tile" href="/halal">
+                <div class="mega-tile-img"><img src="https://images.unsplash.com/photo-1590779033100-9f60a05a013d?w=400&q=65&auto=format&fit=crop" alt="" loading="lazy"></div>
+                <h4>Halal</h4>
+                <p>Certification and labels, without the jargon.</p>
+              </a>
+              <a class="mega-tile" href="/food-business">
+                <div class="mega-tile-img"><img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=400&q=65&auto=format&fit=crop" alt="" loading="lazy"></div>
+                <h4>Food Business</h4>
+                <p>Licences, costing and scaling past the home kitchen.</p>
+              </a>
+            </div>
+            <div class="mega-foot">
+              <a class="chip chip--accent" href="/ingredients">Buying guides</a>
+              <a class="chip chip--accent" href="/technique">How it works</a>
+              <a class="chip chip--accent" href="/halal">Halal explained</a>
+              <a class="chip chip--accent" href="/food-business">For food businesses</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ingredients" class="nav-link">Ingredients</a></li>
+        <li><a href="/halal" class="nav-link">Halal</a></li>
+        <li><a href="/about" class="nav-link">About</a></li>
       </ul>
     </nav>
+
+    <div class="head-actions">
+      <button class="search-trigger" data-open-search aria-label="Search the site">
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.6"/><path d="M11 11l4 4" stroke="currentColor" stroke-width="1.6"/></svg>
+        <span>What are you cooking?</span>
+        <kbd>/</kbd>
+      </button>
+      <button class="icon-btn" data-open-search aria-label="Search">
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.6"/><path d="M11 11l4 4" stroke="currentColor" stroke-width="1.6"/></svg>
+      </button>
+      <button class="icon-btn" data-open-drawer aria-label="Menu" aria-controls="drawer">
+        <svg viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M0 1h18M0 6h18M0 11h18" stroke="currentColor" stroke-width="1.6"/></svg>
+      </button>
+    </div>
   </div>
 </header>
+
 
 <main>
   <div class="shell article-head">
@@ -80,12 +131,13 @@
   </section>
 </main>
 
+<!-- ============ FOOTER ============ -->
 <footer class="foot">
   <div class="shell">
     <div class="foot-grid">
       <div>
         <a href="/" class="wordmark">The Malaysian <em>Pantry</em></a>
-        <p class="meta" style="margin-top: 0.9rem; max-width: 30ch; line-height: 1.7;">Ingredients, cooking and the business of food.</p>
+        <p class="meta" style="margin-top: 0.9rem; max-width: 30ch; line-height: 1.8;">Ingredients, cooking and the business of food in Malaysia.</p>
       </div>
       <div>
         <h4>Sections</h4>
@@ -97,16 +149,90 @@
         </ul>
       </div>
       <div>
+        <h4>Popular topics</h4>
+        <ul>
+          <li><a href="/articles/halal-certification-malaysia">Halal certification</a></li>
+          <li><a href="/articles/how-to-build-a-rempah">Making rempah</a></li>
+          <li><a href="/articles/belacan-guide">Belacan</a></li>
+          <li><a href="/articles/mesti-gmp-haccp-explained">MESTI and GMP</a></li>
+        </ul>
+      </div>
+      <div>
         <h4>About</h4>
         <ul>
           <li><a href="/about">About this site</a></li>
-          <li><a href="/contact">Contact</a></li>
+          <li><a href="https://www.tropicorfoods.com">Tropicor Foods</a></li>
+          <li><button class="more" data-open-search style="padding:0;">Search</button></li>
         </ul>
       </div>
     </div>
-    <p class="foot-note">The Malaysian Pantry is published by <a href="https://www.tropicorfoods.com">Tropicor Foods</a>, a halal-certified food ingredient manufacturer in Klang, Selangor. We write about the whole subject, not only the parts we sell into.</p>
+    <p class="foot-note">The Malaysian Pantry is published by <a href="https://www.tropicorfoods.com">Tropicor Foods</a>, a halal-certified food ingredient manufacturer in Klang, Selangor. We write about the whole subject, not only the parts we sell into. &copy; <span data-year>2026</span></p>
   </div>
 </footer>
+
+<!-- ============ SEARCH OVERLAY ============ -->
+<div class="search" id="search" data-close-search role="dialog" aria-modal="true" aria-label="Search">
+  <div class="search-panel">
+    <div class="shell">
+      <div class="search-bar">
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.6"/><path d="M11 11l4 4" stroke="currentColor" stroke-width="1.6"/></svg>
+        <input class="search-input" id="search-input" type="search" placeholder="What are you cooking?" autocomplete="off">
+        <button class="search-close" data-close-search>Close</button>
+      </div>
+
+      <div class="search-body">
+        <div id="search-default">
+          <div class="search-section">
+            <h3>Filter by section</h3>
+            <div class="chips">
+              <button class="chip" data-filter="Ingredients">Ingredients</button>
+              <button class="chip" data-filter="Technique">Technique</button>
+              <button class="chip" data-filter="Halal">Halal</button>
+              <button class="chip" data-filter="Food business">Food business</button>
+            </div>
+          </div>
+          <div class="search-section">
+            <h3>Try searching for</h3>
+            <div class="chips">
+              <a class="chip chip--accent" href="#" data-term="belacan">belacan</a>
+              <a class="chip chip--accent" href="#" data-term="ikan bilis">ikan bilis</a>
+              <a class="chip chip--accent" href="#" data-term="rempah">rempah</a>
+              <a class="chip chip--accent" href="#" data-term="halal">halal certification</a>
+              <a class="chip chip--accent" href="#" data-term="mesti">MESTI</a>
+              <a class="chip chip--accent" href="#" data-term="e471">E471</a>
+              <a class="chip chip--accent" href="#" data-term="storage">storage</a>
+            </div>
+          </div>
+        </div>
+        <div class="results" id="search-results"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ MOBILE DRAWER ============ -->
+<div class="drawer" id="drawer">
+  <div class="drawer-scrim" data-close-drawer></div>
+  <div class="drawer-panel" role="dialog" aria-modal="true" aria-label="Menu">
+    <div class="drawer-head">
+      <span class="label">Menu</span>
+      <button class="search-close" data-close-drawer>Close</button>
+    </div>
+    <button class="search-trigger" data-open-search style="display:flex; width:100%; margin-bottom:1.25rem;">
+      <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.6"/><path d="M11 11l4 4" stroke="currentColor" stroke-width="1.6"/></svg>
+      <span>What are you cooking?</span>
+    </button>
+    <ul class="drawer-nav">
+      <li><a href="/ingredients">Ingredients <span class="meta">2</span></a></li>
+      <li><a href="/technique">Technique <span class="meta">1</span></a></li>
+      <li><a href="/halal">Halal <span class="meta">2</span></a></li>
+      <li><a href="/food-business">Food Business <span class="meta">1</span></a></li>
+      <li><a href="/about">About</a></li>
+    </ul>
+  </div>
+</div>
+
+<script src="/js/pantry.js"></script>
 
 </body>
 </html>
